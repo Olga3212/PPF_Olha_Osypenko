@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
+import type { Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const {
+  lang,
+  title = "Restaurante — Landing page con Astro y Tailwind CSS",
+  description = "Landing page responsive de restaurante construida con Astro, Tailwind CSS 4 y componentes Astro. Ejercicio educativo.",
+  path = "",
+} = Astro.props;
+
+// Sin `site` configurado usamos URLs relativas.
+// Cuando se defina `site: "https://..."` en astro.config.mjs,
+// `getAbsoluteLocaleUrl` generará automáticamente URLs absolutas.
+const useAbsolute = Boolean(Astro.site);
+const esUrl = useAbsolute
+  ? getAbsoluteLocaleUrl("es", path)
+  : getRelativeLocaleUrl("es", path);
+const enUrl = useAbsolute
+  ? getAbsoluteLocaleUrl("en", path)
+  : getRelativeLocaleUrl("en", path);
+const xDefaultUrl = esUrl;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

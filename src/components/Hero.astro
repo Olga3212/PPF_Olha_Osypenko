@@ -1,0 +1,51 @@
+---
+import Placeholder from "./Placeholder.astro";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const base = `/${lang}`;
+---
+<section aria-labelledby="hero-title" class="w-full bg-white">
+  <div class="mx-auto w-full max-w-6xl px-4 pt-14 pb-12 sm:px-6 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-xs font-bold tracking-[0.2em] text-teal-800 uppercase sm:text-sm">
+        {t("hero.eyebrow")}
+      </p>
+      <h1
+        id="hero-title"
+        class="mt-4 text-4xl leading-[1.05] font-black tracking-tight text-balance text-neutral-950 sm:text-5xl lg:text-6xl"
+      >
+        {t("hero.title")}
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-pretty text-neutral-700 sm:text-lg">
+        {t("hero.description")}
+      </p>
+      <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+        <a
+          href={base + "/#nosotros"}
+          class="rounded-full bg-neutral-950 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+        >
+          {t("buttons.about")}
+        </a>
+        <a
+          href={base + "/#menu"}
+          class="rounded-full border border-neutral-300 bg-white px-7 py-3 text-sm font-semibold text-neutral-900 transition-colors hover:border-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+        >
+          {t("buttons.menu")}
+        </a>
+      </div>
+    </div>
+
+    <figure class="mt-12 sm:mt-14">
+      <Placeholder label={t("hero.caption")} aspect="aspect-video" rounded={true} />
+      <figcaption class="mt-3 text-center text-sm text-neutral-500">
+        {t("hero.caption")}
+      </figcaption>
+    </figure>
+  </div>
+</section>

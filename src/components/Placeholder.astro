@@ -1,0 +1,27 @@
+---
+interface Props {
+  label: string;
+  sub?: string;
+  aspect?: string;
+  rounded?: boolean;
+}
+
+const {
+  label,
+  sub = "IMAGE PLACEHOLDER",
+  aspect = "aspect-video",
+  rounded = true,
+} = Astro.props;
+---
+<div
+  role="img"
+  aria-label={label}
+  class:list={[
+    "flex w-full flex-col items-center justify-center gap-1 border-2 border-dashed border-neutral-400 bg-neutral-200 px-6 py-8 text-center text-neutral-600",
+    aspect,
+    rounded && "rounded-lg",
+  ]}
+>
+  <span class="text-xs font-bold tracking-widest uppercase sm:text-sm">{sub}</span>
+  <span class="max-w-full text-base font-semibold break-words sm:text-lg">{label}</span>
+</div>

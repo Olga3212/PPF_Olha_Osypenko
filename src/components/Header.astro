@@ -1,0 +1,79 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  lang?: "es" | "en";
+}
+
+const { lang = "es" } = Astro.props;
+const base = `/${lang}`;
+---
+<header class="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href={base + "/"} class="text-lg font-black tracking-tight text-neutral-900" aria-label="Astrorante — inicio">
+      Astro<span aria-hidden="true" class="text-teal-700">rante</span>
+    </a>
+
+    <!-- Navegación escritorio -->
+    <nav aria-label="Navegación principal" class="hidden md:block">
+      <ul class="flex items-center gap-8 text-sm font-medium text-neutral-700">
+        <li>
+          <a href={base + "/"} class="transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Home</a>
+        </li>
+        <li>
+          <a href={base + "/#nosotros"} class="transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">About</a>
+        </li>
+        <li>
+          <a href={base + "/#menu"} class="transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Menu</a>
+        </li>
+        <li>
+          <a
+            href={base + "/#reservar"}
+            class="rounded-full bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+          >
+            Reservar
+          </a>
+        </li>
+        <li>
+          <LanguageSwitcher lang={lang} variant="desktop" />
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Navegación móvil sin JS -->
+    <details class="relative md:hidden">
+      <summary
+        aria-label="Abrir menú de navegación"
+        class="flex cursor-pointer list-none items-center justify-center rounded-md p-2 text-neutral-800 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 [&::-webkit-details-marker]:hidden"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" x2="20" y1="7" y2="7"></line>
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="17" y2="17"></line>
+        </svg>
+      </summary>
+      <nav
+        aria-label="Navegación móvil"
+        class="absolute top-full right-0 mt-2 w-48 rounded-lg border border-neutral-200 bg-white p-2 shadow-lg"
+      >
+        <ul class="flex flex-col text-sm font-medium text-neutral-800">
+          <li>
+            <a href={base + "/"} class="block rounded-md px-3 py-2 hover:bg-neutral-100">Home</a>
+          </li>
+          <li>
+            <a href={base + "/#nosotros"} class="block rounded-md px-3 py-2 hover:bg-neutral-100">About</a>
+          </li>
+          <li>
+            <a href={base + "/#menu"} class="block rounded-md px-3 py-2 hover:bg-neutral-100">Menu</a>
+          </li>
+          <li class="mt-1 border-t border-neutral-100 pt-1">
+            <a href={base + "/#reservar"} class="block rounded-md bg-neutral-900 px-3 py-2 text-center font-semibold text-white hover:bg-neutral-700">Reservar</a>
+          </li>
+          <li>
+            <LanguageSwitcher lang={lang} variant="mobile" />
+          </li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

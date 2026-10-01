@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import FlexibleMenu from "../../components/FlexibleMenu.astro";
+import VisualEditing from "../../components/VisualEditing.astro";
+import LightningFast from "../../components/LightningFast.astro";
+import DocsFeatures from "../../components/DocsFeatures.astro";
+import OpenSource from "../../components/OpenSource.astro";
+import TastyDeals from "../../components/TastyDeals.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout
+  lang="es"
+  title="Astrorante — Restaurante (ejercicio educativo)"
+  description="Landing page de restaurante en español con Astro y Tailwind CSS 4. Réplica estructural con fines educativos."
+>
+  <Header lang="es" />
+  <main>
+    <Hero lang="es" />
+    <FlexibleMenu />
+    <VisualEditing />
+    <LightningFast />
+    <DocsFeatures />
+    <OpenSource />
+    <TastyDeals />
+  </main>
+  <Footer />
+</Layout>

@@ -1,16 +1,18 @@
 ---
 import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { ui } from "../i18n/ui";
 
 interface Props {
   lang?: "es" | "en";
 }
 
 const { lang = "es" } = Astro.props;
+const t = ui[lang];
 const base = `/${lang}`;
 ---
-<header class="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/90 backdrop-blur">
-  <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-    <a href={base + "/"} class="text-lg font-black tracking-tight text-neutral-900" aria-label="Astrorante — inicio">
+<header class="sticky top-0 z-50 border-b border-teal-900/10 bg-surface/90 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href={base + "/"} class="rounded-sm text-lg font-black tracking-tight text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700" aria-label={t.nav.brandAria}>
       Astro<span aria-hidden="true" class="text-teal-700">rante</span>
     </a>
 
@@ -18,18 +20,18 @@ const base = `/${lang}`;
     <nav aria-label="Navegación principal" class="hidden md:block">
       <ul class="flex items-center gap-8 text-sm font-medium text-neutral-700">
         <li>
-          <a href={base + "/"} class="transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Home</a>
+          <a href={base + "/"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Home</a>
         </li>
         <li>
-          <a href={base + "/#nosotros"} class="transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">About</a>
+          <a href={base + "/#nosotros"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">About</a>
         </li>
         <li>
-          <a href={base + "/#menu"} class="transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Menu</a>
+          <a href={base + "/#menu"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Menu</a>
         </li>
         <li>
           <a
             href={base + "/#reservar"}
-            class="rounded-full bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            class="rounded-full bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
           >
             Reservar
           </a>
@@ -43,8 +45,8 @@ const base = `/${lang}`;
     <!-- Navegación móvil sin JS -->
     <details class="relative md:hidden">
       <summary
-        aria-label="Abrir menú de navegación"
-        class="flex cursor-pointer list-none items-center justify-center rounded-md p-2 text-neutral-800 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 [&::-webkit-details-marker]:hidden"
+        aria-label={t.nav.openMenu}
+        class="flex cursor-pointer list-none items-center justify-center rounded-md p-2.5 text-neutral-800 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700 [&::-webkit-details-marker]:hidden"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="4" x2="20" y1="7" y2="7"></line>
@@ -58,16 +60,16 @@ const base = `/${lang}`;
       >
         <ul class="flex flex-col text-sm font-medium text-neutral-800">
           <li>
-            <a href={base + "/"} class="block rounded-md px-3 py-2 hover:bg-neutral-100">Home</a>
+            <a href={base + "/"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">Home</a>
           </li>
           <li>
-            <a href={base + "/#nosotros"} class="block rounded-md px-3 py-2 hover:bg-neutral-100">About</a>
+            <a href={base + "/#nosotros"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">About</a>
           </li>
           <li>
-            <a href={base + "/#menu"} class="block rounded-md px-3 py-2 hover:bg-neutral-100">Menu</a>
+            <a href={base + "/#menu"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">Menu</a>
           </li>
           <li class="mt-1 border-t border-neutral-100 pt-1">
-            <a href={base + "/#reservar"} class="block rounded-md bg-neutral-900 px-3 py-2 text-center font-semibold text-white hover:bg-neutral-700">Reservar</a>
+            <a href={base + "/#reservar"} class="block rounded-md bg-teal-700 px-3 py-2 text-center font-semibold text-white hover:bg-teal-800">Reservar</a>
           </li>
           <li>
             <LanguageSwitcher lang={lang} variant="mobile" />

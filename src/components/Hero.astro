@@ -10,8 +10,8 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const base = `/${lang}`;
 ---
-<section aria-labelledby="hero-title" class="w-full bg-white">
-  <div class="mx-auto w-full max-w-6xl px-4 pt-14 pb-12 sm:px-6 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
+<section aria-labelledby="hero-title" class="bg-surface">
+  <div class="mx-auto max-w-5xl px-4 pt-16 pb-16 sm:px-6 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24">
     <div class="mx-auto max-w-3xl text-center">
       <p class="text-xs font-bold tracking-[0.2em] text-teal-800 uppercase sm:text-sm">
         {t("hero.eyebrow")}
@@ -28,13 +28,13 @@ const base = `/${lang}`;
       <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
         <a
           href={base + "/#nosotros"}
-          class="rounded-full bg-neutral-950 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+          class="rounded-full bg-teal-700 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
         >
           {t("buttons.about")}
         </a>
         <a
           href={base + "/#menu"}
-          class="rounded-full border border-neutral-300 bg-white px-7 py-3 text-sm font-semibold text-neutral-900 transition-colors hover:border-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+          class="rounded-full border border-teal-900/20 bg-white/60 px-7 py-3 text-sm font-semibold text-neutral-900 transition-colors hover:border-teal-800 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800"
         >
           {t("buttons.menu")}
         </a>

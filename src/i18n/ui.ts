@@ -23,13 +23,11 @@ const es = {
     reserve: "Reservar",
     openMenu: "Abrir menú de navegación",
     brandAria: "Astrorante — inicio",
+    skipToContent: "Saltar al contenido",
   },
   hero: {
     eyebrow: "Restaurante de cocina de temporada",
     title: "Sabores que cuentan historias",
-    titleLead: "Descubre",
-    titleHighlight: "Astrorante:",
-    titleRest: "sabor que se queda contigo",
     description:
       "Platos de temporada con producto local en un comedor acogedor. Ejemplo de texto para el hero.",
     caption: "Fotografía panorámica del comedor del restaurante",
@@ -37,12 +35,11 @@ const es = {
   buttons: {
     about: "Nosotros",
     menu: "Ver carta",
-    viewMenu: "Ver carta",
     book: "Reservar mesa",
-    github: "GitHub",
   },
   sections: {
     flexibleMenu: {
+      eyebrow: "Carta de temporada",
       title: "Carta flexible",
       intro: "Una muestra de nuestra cocina, con platos de ejemplo.",
       items: [
@@ -51,13 +48,19 @@ const es = {
         "Descripciones breves con ingredientes de ejemplo.",
       ],
       link: "Ver carta completa",
+      imageLabel: "Fotografía de plato principal",
+      imageCaption: "Fotografía de plato principal (ejemplo)",
     },
     visualEditing: {
+      eyebrow: "El restaurante",
       title: "Un espacio acogedor",
       text: "Texto de ejemplo sobre el ambiente del restaurante y su sala principal.",
       link: "Conócenos",
+      imageLabel: "Fotografía del interior del restaurante",
+      imageCaption: "Interior del restaurante (ejemplo)",
     },
     lightning: {
+      eyebrow: "En sala",
       title: "Servicio ágil",
       intro: "Texto de ejemplo sobre la experiencia en sala.",
       items: [
@@ -65,16 +68,33 @@ const es = {
         "Tiempos de espera de ejemplo bien organizados.",
         "Ambiente tranquilo para conversar.",
       ],
+      imageLabel: "Ambiente del restaurante",
+      imageCaption: "Ambiente del restaurante (ejemplo)",
     },
     docs: {
+      eyebrow: "Guía del restaurante",
       title: "Descubre más",
+      intro: "Tres formas de conocer mejor Astrorante, con ejemplos breves.",
       cards: [
-        { title: "Nuestra historia", link: "Cómo empezamos" },
-        { title: "El equipo", link: "Quién está en cocina" },
-        { title: "Eventos privados", link: "Reserva para grupos" },
+        {
+          title: "Nuestra historia",
+          desc: "Cómo empezó este restaurante de ejemplo y qué cocina nos inspira.",
+          link: "Cómo empezamos",
+        },
+        {
+          title: "El equipo",
+          desc: "Quién está en cocina y en sala en este ejemplo educativo.",
+          link: "Quién está en cocina",
+        },
+        {
+          title: "Eventos privados",
+          desc: "Cómo reservar para grupos con este ejemplo de contenido.",
+          link: "Reserva para grupos",
+        },
       ],
     },
     openSource: {
+      eyebrow: "Reserva tu mesa",
       title: "Cocina abierta y honesta.",
       intro: "Texto de ejemplo sobre nuestra filosofía de cocina:",
       items: [
@@ -82,6 +102,8 @@ const es = {
         "Recetas adaptadas a cada temporada.",
         "Precios claros de ejemplo.",
       ],
+      imageLabel: "Sala del restaurante",
+      imageCaption: "Nuestra sala (ejemplo)",
     },
   },
   deals: {
@@ -113,6 +135,17 @@ const es = {
     closed: "Cerrado",
     copyright: "© 2026 Astrorante — Ejercicio educativo",
     address: "Calle Ejemplo 123, 07001 Palma, Illes Balears",
+    email: "hola@ejemplo.es",
+    phone: "+34 000 000 000",
+    hours: [
+      { day: "Lunes", time: "Cerrado" },
+      { day: "Martes", time: "13:00 – 23:00" },
+      { day: "Miércoles", time: "13:00 – 23:00" },
+      { day: "Jueves", time: "13:00 – 23:00" },
+      { day: "Viernes", time: "13:00 – 00:00" },
+      { day: "Sábado", time: "13:00 – 00:00" },
+      { day: "Domingo", time: "13:00 – 16:00" },
+    ],
   },
   langSelector: {
     label: "Selector de idioma",
@@ -134,13 +167,11 @@ const en: typeof es = {
     reserve: "Book a table",
     openMenu: "Open navigation menu",
     brandAria: "Astrorante — home",
+    skipToContent: "Skip to content",
   },
   hero: {
     eyebrow: "Seasonal kitchen restaurant",
     title: "Flavours that tell stories",
-    titleLead: "Meet",
-    titleHighlight: "Astrorante:",
-    titleRest: "flavour that stays with you",
     description:
       "Seasonal dishes with local produce in a cosy dining room. Sample hero copy.",
     caption: "Panoramic photograph of the restaurant dining room",
@@ -148,12 +179,11 @@ const en: typeof es = {
   buttons: {
     about: "About us",
     menu: "View menu",
-    viewMenu: "View full menu",
     book: "Book a table",
-    github: "GitHub",
   },
   sections: {
     flexibleMenu: {
+      eyebrow: "Seasonal menu",
       title: "Flexible menu",
       intro: "A sample of our kitchen, with example dishes.",
       items: [
@@ -162,13 +192,19 @@ const en: typeof es = {
         "Short descriptions with sample ingredients.",
       ],
       link: "View full menu",
+      imageLabel: "Main dish photograph",
+      imageCaption: "Sample main dish photograph",
     },
     visualEditing: {
+      eyebrow: "The restaurant",
       title: "A welcoming space",
       text: "Sample copy about the restaurant atmosphere and its main dining room.",
       link: "Meet us",
+      imageLabel: "Restaurant interior photograph",
+      imageCaption: "Restaurant interior (sample)",
     },
     lightning: {
+      eyebrow: "In the dining room",
       title: "Smooth service",
       intro: "Sample copy about the dining experience.",
       items: [
@@ -176,16 +212,33 @@ const en: typeof es = {
         "Well organised sample waiting times.",
         "Calm atmosphere for conversation.",
       ],
+      imageLabel: "Restaurant ambience",
+      imageCaption: "Restaurant ambience (sample)",
     },
     docs: {
+      eyebrow: "Restaurant guide",
       title: "Discover more",
+      intro: "Three ways to get to know Astrorante better, with short samples.",
       cards: [
-        { title: "Our story", link: "How we started" },
-        { title: "The team", link: "Who is in the kitchen" },
-        { title: "Private events", link: "Book for groups" },
+        {
+          title: "Our story",
+          desc: "How this sample restaurant started and what cooking inspires us.",
+          link: "How we started",
+        },
+        {
+          title: "The team",
+          desc: "Who is in the kitchen and dining room in this learning example.",
+          link: "Who is in the kitchen",
+        },
+        {
+          title: "Private events",
+          desc: "How to book for groups with this sample content.",
+          link: "Book for groups",
+        },
       ],
     },
     openSource: {
+      eyebrow: "Book your table",
       title: "Open and honest cooking.",
       intro: "Sample copy about our cooking philosophy:",
       items: [
@@ -193,6 +246,8 @@ const en: typeof es = {
         "Recipes adapted to each season.",
         "Clear sample prices.",
       ],
+      imageLabel: "Restaurant dining room",
+      imageCaption: "Our dining room (sample)",
     },
   },
   deals: {
@@ -224,6 +279,17 @@ const en: typeof es = {
     closed: "Closed",
     copyright: "© 2026 Astrorante — Educational exercise",
     address: "123 Example Street, 07001 Palma, Balearic Islands",
+    email: "hello@example.com",
+    phone: "+34 000 000 000",
+    hours: [
+      { day: "Monday", time: "Closed" },
+      { day: "Tuesday", time: "1pm – 11pm" },
+      { day: "Wednesday", time: "1pm – 11pm" },
+      { day: "Thursday", time: "1pm – 11pm" },
+      { day: "Friday", time: "1pm – 12am" },
+      { day: "Saturday", time: "1pm – 12am" },
+      { day: "Sunday", time: "1pm – 4pm" },
+    ],
   },
   langSelector: {
     label: "Language selector",

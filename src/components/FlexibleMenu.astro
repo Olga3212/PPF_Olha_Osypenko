@@ -1,19 +1,27 @@
 ---
-import Placeholder from "./Placeholder.astro";
+import FeatureSection from "./FeatureSection.astro";
+import { ui, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props as Props;
+const s = ui[lang].sections.flexibleMenu;
+const base = `/${lang}`;
 ---
-<section id="menu" aria-labelledby="menu-title">
-  <article>
-    <h2 id="menu-title">Flexible Menu!</h2>
-    <p>Showcase your exquisite cuisine with ease.</p>
-    <ul>
-      <li>Effortlessly update menu items.</li>
-      <li>Highlight daily specials and seasonal dishes.</li>
-      <li>Engage customers with stunning visuals and detailed descriptions.</li>
-    </ul>
-    <a href="#menu">menu</a>
-  </article>
-  <figure>
-    <Placeholder label="Menu Photograph" aspect="aspect-[4/5]" />
-    <figcaption>Fotografía de plato principal</figcaption>
-  </figure>
-</section>
+
+<FeatureSection
+  id="menu"
+  titleId="menu-title"
+  eyebrow={s.eyebrow}
+  title={s.title}
+  description={s.intro}
+  features={s.items}
+  buttonText={s.link}
+  href={`${base}/#menu`}
+  imagePosition="right"
+  tone="white"
+  imageLabel={s.imageLabel}
+  imageCaption={s.imageCaption}
+/>

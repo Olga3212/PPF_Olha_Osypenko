@@ -1,38 +1,122 @@
 ---
+import { ui, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props as Props;
+const t = ui[lang];
+const base = `/${lang}`;
+
+const infoLinks = [
+  { label: t.nav.home, href: `${base}/` },
+  { label: t.nav.about, href: `${base}/#nosotros` },
+  { label: t.nav.menu, href: `${base}/#menu` },
+  { label: t.nav.reserve, href: `${base}/#reservar` },
+];
+
+const foodLinks = [
+  { label: t.sections.flexibleMenu.link, href: `${base}/#menu` },
+  { label: t.deals.title, href: `${base}/#ofertas` },
+  { label: t.sections.docs.title, href: `${base}/#docs` },
+];
 ---
-<footer id="contacto">
-  <div>
-    <div>
-      <p><strong>AstroRante</strong> is a state-of-the-art website theme crafted for fine dining establishments.</p>
-      <address>
-        <p>Cala Sol d'en Serra s/n, 07849 Cala Llonga, Balearic Islands</p>
-        <a href="mailto:hello@example.com">hello@example.com</a>
-        <a href="tel:+34000000000">+34 000 000 00</a>
-      </address>
+
+<footer id="contacto" class="scroll-mt-20 bg-neutral-950 text-neutral-300">
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a
+          href={base + "/"}
+          class="rounded-sm text-lg font-black tracking-tight text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
+          aria-label={t.nav.brandAria}
+        >
+          Astro<span aria-hidden="true" class="text-teal-300">rante</span>
+        </a>
+        <p class="mt-4 text-base leading-relaxed text-neutral-400">
+          {t.footer.tagline}
+        </p>
+        <address class="mt-5 space-y-2 text-base break-words not-italic">
+          <p>{t.footer.address}</p>
+          <p>
+            <a
+              href={`mailto:${t.footer.email}`}
+              class="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300"
+            >
+              {t.footer.email}
+            </a>
+          </p>
+          <p>
+            <a
+              href={`tel:${t.footer.phone.replace(/\s/g, "")}`}
+              class="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300"
+            >
+              {t.footer.phone}
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <nav aria-label={t.footer.infoTitle}>
+        <h2
+          class="text-xs font-bold tracking-[0.2em] text-white uppercase sm:text-sm"
+        >
+          {t.footer.infoTitle}
+        </h2>
+        <ul class="mt-5 space-y-3 text-base">
+          {
+            infoLinks.map((link) => (
+              <li>
+                <a href={link.href} class="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-label={t.footer.foodTitle}>
+        <h2
+          class="text-xs font-bold tracking-[0.2em] text-white uppercase sm:text-sm"
+        >
+          {t.footer.foodTitle}
+        </h2>
+        <ul class="mt-5 space-y-3 text-base">
+          {
+            foodLinks.map((link) => (
+              <li>
+                <a href={link.href} class="rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div>
+        <h2
+          class="text-xs font-bold tracking-[0.2em] text-white uppercase sm:text-sm"
+        >
+          {t.footer.hoursTitle}
+        </h2>
+        <dl class="mt-5 space-y-3 text-base">
+          {
+            t.footer.hours.map((row) => (
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-neutral-400">{row.day}</dt>
+                <dd class="text-right text-neutral-200">{row.time}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
     </div>
-    <nav aria-label="Información">
-      <h2>Information</h2>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#docs">Docs &amp; Features</a></li>
-        <li><a href="#nosotros">About Us</a></li>
-      </ul>
-    </nav>
-    <nav aria-label="Carta">
-      <h2>Food</h2>
-      <ul>
-        <li><a href="#menu">Menu</a></li>
-      </ul>
-    </nav>
-    <div>
-      <h2>Opening Hours</h2>
-      <dl>
-        <div><dt>Sun:</dt><dd><time>08:00 - 00:00</time></dd></div>
-        <div><dt>Mon:</dt><dd>Closed</dd></div>
-        <div><dt>Tue:</dt><dd><time>08:00 - 00:00</time></dd></div>
-        <div><dt>Sat:</dt><dd><time>08:00 - 00:00</time></dd></div>
-      </dl>
+
+    <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-neutral-400">
+      <p><small>{t.footer.copyright}</small></p>
     </div>
   </div>
-  <p><small>© 2023 Astrorante — Ejercicio educativo</small></p>
 </footer>

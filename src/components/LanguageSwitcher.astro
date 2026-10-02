@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { useTranslations, type Lang } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
@@ -8,12 +8,11 @@ interface Props {
 }
 
 const { lang, variant = "desktop" } = Astro.props;
-const t = useTranslations(lang);
 
 const esUrl = getRelativeLocaleUrl("es");
 const enUrl = getRelativeLocaleUrl("en");
 ---
-<nav aria-label={t("langSelector.label")}>
+<div>
   <ul
     class:list={[
       "flex items-center gap-1 text-sm",
@@ -54,4 +53,4 @@ const enUrl = getRelativeLocaleUrl("en");
       </a>
     </li>
   </ul>
-</nav>
+</div>

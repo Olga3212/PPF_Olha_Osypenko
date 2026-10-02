@@ -1,0 +1,106 @@
+---
+import Placeholder from "./Placeholder.astro";
+import CheckIcon from "./CheckIcon.astro";
+
+type FeatureImagePosition = "left" | "right";
+type FeatureTone = "white" | "cream";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  features?: readonly string[];
+  buttonText?: string;
+  href?: string;
+  imagePosition: FeatureImagePosition;
+  imageLabel: string;
+  imageCaption?: string;
+  id?: string;
+  titleId?: string;
+  tone?: FeatureTone;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  features,
+  buttonText,
+  href,
+  imagePosition,
+  imageLabel,
+  imageCaption,
+  id,
+  titleId,
+  tone = "white",
+} = Astro.props as Props;
+
+const headingId = titleId ?? (id ? `${id}-title` : undefined);
+const hasFeatures = Array.isArray(features) && features.length > 0;
+const hasButton = Boolean(buttonText && href);
+
+// Móvil (orden DOM): imagen -> texto.
+// Escritorio: dos columnas, alternable con imagePosition.
+const figureOrder = imagePosition === "left" ? "md:order-1" : "md:order-2";
+const contentOrder = imagePosition === "left" ? "md:order-2" : "md:order-1";
+---
+
+<section id={id} aria-labelledby={headingId} class:list={["scroll-mt-20", tone === "cream" ? "bg-surface" : "bg-white"]}>
+  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+    <div class="grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+      <figure class={figureOrder}>
+        <Placeholder label={imageLabel} aspect="aspect-[4/5]" rounded={true} />
+        {
+          imageCaption && (
+            <figcaption class="mt-3 text-center text-sm text-neutral-500 md:text-left">
+              {imageCaption}
+            </figcaption>
+          )
+        }
+      </figure>
+
+      <article class={contentOrder}>
+        {
+          eyebrow && (
+            <p class="text-xs font-bold tracking-[0.2em] text-teal-800 uppercase sm:text-sm">
+              {eyebrow}
+            </p>
+          )
+        }
+        <h2
+          id={headingId}
+          class="mt-3 text-3xl font-black tracking-tight text-balance text-neutral-950 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]"
+        >
+          {title}
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-pretty text-neutral-700 sm:text-lg">
+          {description}
+        </p>
+
+        {
+          hasFeatures && (
+            <ul class="mt-6 space-y-3">
+              {features!.map((feature) => (
+                <li class="flex items-start gap-3 text-base text-neutral-800">
+                  <CheckIcon class="text-teal-800" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+
+        {
+          hasButton && (
+            <a
+              href={href}
+              class="mt-8 inline-block rounded-full bg-teal-700 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
+            >
+              {buttonText}
+            </a>
+          )
+        }
+      </article>
+    </div>
+  </div>
+</section>

@@ -17,23 +17,23 @@ const base = `/${lang}`;
     </a>
 
     <!-- Navegación escritorio -->
-    <nav aria-label="Navegación principal" class="hidden md:block">
+    <nav aria-label={t.nav.primary} class="hidden md:block">
       <ul class="flex items-center gap-8 text-sm font-medium text-neutral-700">
         <li>
-          <a href={base + "/"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Home</a>
+          <a href={base + "/"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">{t.nav.home}</a>
         </li>
         <li>
-          <a href={base + "/#nosotros"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">About</a>
+          <a href={base + "/#nosotros"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">{t.nav.about}</a>
         </li>
         <li>
-          <a href={base + "/#menu"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">Menu</a>
+          <a href={base + "/#menu"} class="inline-block py-1 transition-colors hover:text-neutral-950 focus-visible:underline focus-visible:outline-none">{t.nav.menu}</a>
         </li>
         <li>
           <a
             href={base + "/#reservar"}
             class="rounded-full bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
           >
-            Reservar
+            {t.nav.reserve}
           </a>
         </li>
         <li>
@@ -55,21 +55,21 @@ const base = `/${lang}`;
         </svg>
       </summary>
       <nav
-        aria-label="Navegación móvil"
+        aria-label={t.nav.mobile}
         class="absolute top-full right-0 mt-2 w-48 rounded-lg border border-neutral-200 bg-white p-2 shadow-lg"
       >
         <ul class="flex flex-col text-sm font-medium text-neutral-800">
           <li>
-            <a href={base + "/"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">Home</a>
+            <a href={base + "/"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">{t.nav.home}</a>
           </li>
           <li>
-            <a href={base + "/#nosotros"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">About</a>
+            <a href={base + "/#nosotros"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">{t.nav.about}</a>
           </li>
           <li>
-            <a href={base + "/#menu"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">Menu</a>
+            <a href={base + "/#menu"} class="block rounded-md px-3 py-2.5 hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">{t.nav.menu}</a>
           </li>
           <li class="mt-1 border-t border-neutral-100 pt-1">
-            <a href={base + "/#reservar"} class="block rounded-md bg-teal-700 px-3 py-2 text-center font-semibold text-white hover:bg-teal-800">Reservar</a>
+            <a href={base + "/#reservar"} class="block rounded-md bg-teal-700 px-3 py-2 text-center font-semibold text-white hover:bg-teal-800">{t.nav.reserve}</a>
           </li>
           <li>
             <LanguageSwitcher lang={lang} variant="mobile" />

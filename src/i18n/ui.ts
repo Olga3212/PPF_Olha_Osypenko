@@ -24,6 +24,8 @@ const es = {
     openMenu: "Abrir menú de navegación",
     brandAria: "Astrorante — inicio",
     skipToContent: "Saltar al contenido",
+    primary: "Navegación principal",
+    mobile: "Navegación móvil",
   },
   hero: {
     eyebrow: "Restaurante de cocina de temporada",
@@ -168,6 +170,8 @@ const en: typeof es = {
     openMenu: "Open navigation menu",
     brandAria: "Astrorante — home",
     skipToContent: "Skip to content",
+    primary: "Primary navigation",
+    mobile: "Mobile navigation",
   },
   hero: {
     eyebrow: "Seasonal kitchen restaurant",

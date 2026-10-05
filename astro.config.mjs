@@ -20,5 +20,7 @@ export default defineConfig({
  devToolbar: { 
     enabled: false,
  },
+ site: 'https://Olga3212.github.io',
+ base: '/PPF_Olha_Osypenko',
 
 });
